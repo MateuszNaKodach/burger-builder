@@ -7,7 +7,7 @@ export const BREAD_BOTTOM = 'bread-bottom';
 export const BREAD_TOP = 'bread-top';
 export const MEAT = 'meat';
 export const CHEESE = 'cheese';
-export const BEACON = 'beacon';
+export const BACON = 'bacon';
 export const SALAD = 'salad';
 
 
@@ -33,8 +33,8 @@ class BurgerIngredient extends Component {
             case (CHEESE):
                 ingredient = <div className={styles.Cheese}></div>;
                 break;
-            case (BEACON):
-                ingredient = <div className={styles.Beacon}></div>;
+            case (BACON):
+                ingredient = <div className={styles.Bacon}></div>;
                 break;
             case (SALAD):
                 ingredient = <div className={styles.Salad}></div>;
