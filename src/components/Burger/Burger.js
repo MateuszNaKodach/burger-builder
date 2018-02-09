@@ -4,13 +4,18 @@ import BurgerIngredient, { BREAD_TOP, BREAD_BOTTOM, CHEESE, MEAT } from './Burge
 
 const burger = (props) => {
 
-    const transformedIngredients = Object.keys(props.ingredients)
+    //Sprobowac bez spread operator! Jak wtedy dział reduce?
+    let transformedIngredients = Object.keys(props.ingredients)
         .map(igKey => {
-            return [... Array(props.ingredients[igKey])].map((_,i) => {
+            return [...Array(props.ingredients[igKey])].map((_,i) => {
                 return <BurgerIngredient key ={igKey+i} type={igKey}/>
             })
-        });
+        }).reduce((arr, el) => arr.concat(el), []);
         
+    if(transformedIngredients.length === 0){
+        transformedIngredients = <p>Please start adding ingredients!</p>
+    }
+    
     return (
         <div className={styles.Burger}>
             <BurgerIngredient type={BREAD_TOP}/>
